@@ -1,0 +1,42 @@
+.form-wrapper(data-call-popup data-disable-page-scroll).fields
+    .form-wrapper-relative
+        form(data-home-contact autocomplete="off")
+            .form-title-wrap
+                .form-title.flex-title
+                    .title-img.title-img-offset-right
+                        img(src="assets/images/form/1.jpg" alt="img")
+                    .title замовити
+                .form-title-2.title дзвінок
+            .form-inputs-row
+                .form-input-wrap
+                    .form-field-text ваше im’я
+                    .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
+                        input(type='text' name="name" placeholder="ім’я").form-field__input
+                        .input-message(data-input-message)
+                .form-input-wrap
+                    .form-field-text ваш номер
+                    .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive").mob-ukraine-tell
+                        img(src="assets/images/svg/ua.svg" alt="img")
+                        input(type='text' name="phone" placeholder="номер").form-field__input
+                        .mask-absolute.js-mask-absolute +38 (___) ___ - __ - __
+                        .input-message(data-input-message)
+                button( type="submit" data-btn-submit).home-content__link.link.video-btn-container
+                    .cerchio
+                        span(data-btn-submit-text) надіслати
+
+        .form-thanks-wrap(data-call-thanks-popup)
+            .title Заявка прийнята
+            a(href="index.html").video-btn-container
+                .cerchio
+                    <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="65" cy="65" r="65"/>
+                    </svg>
+                    span на головну
+        img(src="assets/images/svg/form-vector.svg" alt="vector").vector
+        .form-close-wrap.video-btn-container(data-close-call-popup)
+            .cerchio.form-close
+                span
+                span
+
+
+

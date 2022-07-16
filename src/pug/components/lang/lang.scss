@@ -1,0 +1,83 @@
+.lang-block:after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 3px;
+  position: absolute;
+  right: 0%;
+  top: 50%;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-top: 4px solid $mc;
+  transition: all .3s ease-in-out;
+  transform: translateY(-50%) rotate(0deg);
+}
+
+
+.lang-block {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 35px;
+  transition: all .3s ease-in-out;
+
+  @include to(575px) {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  li {
+    list-style: none;
+    height: 20px;
+    transition: opacity 0.1s linear;
+    opacity: 0;
+
+    display: flex;
+    align-items: center;
+
+    @include to(575px) {
+      height: 15px;
+    }
+
+    a {
+      @include suisse;
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include from(1024px) {
+        @include hover-underline;
+      }
+    }
+    &:hover {
+      a {
+        transition: color .2s ease-in-out;
+      }
+    }
+    &.active {
+      opacity: 1;
+
+      &:hover {
+        li {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+.lang-block:hover {
+  li {
+    opacity: 1;
+  }
+
+  &:after{
+    transform: rotate(180deg);
+    transition: all .3s ease-in-out;
+  }
+}
+.lang-arrow {
+  fill: $mc;
+  margin-left: 10px;
+  transition: all .3s ease-in-out;
+}

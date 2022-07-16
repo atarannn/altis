@@ -1,0 +1,174 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'projects'
+    var id_page = 'id-projects'
+    var class_page = 'class-projects'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Проєкти',
+        link: pagesLink[0].projects
+      }
+    ]
+    var cards = [
+      {
+        class: 'kyiv',
+        city: 'київ',
+        date: '2021',
+        title: 'Рівердейл',
+        img: 'projects/projects-cards/1.jpg',
+        url: 'project-page.html',
+      },
+      {
+        city: 'київ',
+        date: '2021',
+        title: 'Терракот',
+        img: 'projects/projects-cards/2.jpg',
+        url: 'project-page.html',
+      },
+      {
+        city: 'київ',
+        date: '2021',
+        title: 'Графіт',
+        img: 'projects/projects-cards/3.jpg',
+        url: 'project-page.html',
+      },
+      {
+        city: 'київ',
+        date: '2021',
+        title: 'Першоцвіт',
+        img: 'projects/projects-cards/4.jpg',
+        url: 'project-page.html',
+      },
+      {
+        city: 'київ',
+        date: '2021',
+        title: 'Номер 1',
+        img: 'projects/projects-cards/5.jpg',
+        url: 'project-page.html',
+      },
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/footer.js')
+  script(defer src='./assets/scripts/projects.js')
+  script(defer src='./assets/scripts/btn-cursor.js')
+  script(defer src='./assets/scripts/cursor.js')
+  script(defer src='./assets/scripts/anim-pages.js')
+
+block content
+  .wrapper
+    #projects.fields.top-offset
+      include ../includes/breadcrumbs.pug
+      .page-wrapper-top-margin2
+        .projects-title-wrap
+          .projects-title.title проєкти
+          .projects-title-2.flex-title
+            .title altis
+            .title-img.title-img-offset-left
+              img(src="assets/images/projects/1.jpg" alt="img")
+          .projects-title-3.title development
+    .projects-info-wrap
+      .projects-info-title
+        .filter-title.blue-text-2 фільтр
+        .projects-title.blue-text-2 6 проєктів
+      .project-info-title-mobile(data-open-filter-menu)
+        .filter-mob-wrapper
+          .filter-title.blue-text-2 фільтр
+          <svg width="6" height="4" viewBox="0 0 6 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 4L0 0H6L3 4Z" fill="#004994"/>
+          </svg>
+        .projects-title.blue-text-2 6 проєктів
+      .projects-info
+        .filter
+          .filter-location
+            .blue-text-2 Розташування
+            .filter-radio
+              .filter-radio-input
+                label(for="kyiv")
+                input(type="checkbox" value="kyiv" id="kyiv" data-filter="kyiv")
+                .light-blue-text-3 київ
+              .filter-radio-input
+                label(for="borispol")
+                input(type="checkbox" value="borispol" id="borispol" data-filter="borispol")
+                .light-blue-text-3 бориспіль
+          .filter-year
+            .blue-text-2 рік будування
+            .filter-radio
+              .filter-radio-input
+                label(for="2022")
+                input(type="checkbox" value="2022" id="2022" data-filter="2022")
+                .light-blue-text-3 2022
+              .filter-radio-input
+                label(for="2021")
+                input(type="checkbox" value="2021" id="2021" data-filter="2021")
+                .light-blue-text-3 2021
+              .filter-radio-input
+                label(for="2020")
+                input(type="checkbox" value="2020" id="2020" data-filter="2020")
+                .light-blue-text-3 2020
+              .filter-radio-input
+                label(for="2019")
+                input(type="checkbox" value="2019" id="2019" data-filter="2019")
+                .light-blue-text-3 2019
+              .filter-radio-input
+                label(for="2018")
+                input(type="checkbox" value="2018" id="2018" data-filter="2018")
+                .light-blue-text-3 2018
+        .projects
+          .project-card-wrap(data-city="borispol" data-year="2022")
+            a(href="project-page.html")
+              .project-card.overflow
+                +img(src="assets/images/projects/projects-cards/1.jpg")
+                .project-card-top
+                  .light-blue-text-4 київ
+                  .light-blue-text-4 2021
+                .project-card-title.fiora-italic-white Рівердейл
+          .project-card-wrap(data-city="kyiv" data-year="2021")
+            a(href="project-page.html")
+              .project-card.overflow
+                +img(src="assets/images/projects/projects-cards/2.jpg")
+                .project-card-top
+                  .light-blue-text-4 київ
+                  .light-blue-text-4 2021
+                .project-card-title.fiora-italic-white Терракот
+          .project-card-wrap(data-city="kyiv" data-year="2020")
+            a(href="project-page.html")
+              .project-card.overflow
+                +img(src="assets/images/projects/projects-cards/3.jpg")
+                .project-card-top
+                  .light-blue-text-4 київ
+                  .light-blue-text-4 2021
+                .project-card-title.fiora-italic-white Графіт
+          .project-card-wrap(data-city="kyiv" data-year="2019")
+            a(href="project-page.html")
+              .project-card.overflow
+                +img(src="assets/images/projects/projects-cards/4.jpg")
+                .project-card-top
+                  .light-blue-text-4 київ
+                  .light-blue-text-4 2021
+                .project-card-title.fiora-italic-white Першоцвіт
+          .project-card-wrap(data-city="kyiv" data-year="2018")
+            a(href="project-page.html")
+              .project-card.overflow
+                +img(src="assets/images/projects/projects-cards/5.jpg")
+                .project-card-top
+                  .light-blue-text-4 київ
+                  .light-blue-text-4 2021
+                .project-card-title.fiora-italic-white Номер
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

@@ -1,0 +1,81 @@
+#id-page-about {
+  .header {
+    background: $bc2;
+  }
+}
+#about {
+  .about-title-wrap {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px var(--offset);
+    grid-template-areas:
+    "about-title about-title about-title about-title about-title about-title about-title about-title about-title about-title about-title about-title about-title about-title about-title"
+    "about-title-2 about-title-2 about-title-2 about-title-2 about-title-2 about-title-2 about-title-2 about-title-2 about-title-2 about-title-2 about-title-2 about-title-2 about-title-2 about-title-2 about-title-2";
+
+    .about-title {
+      grid-area: about-title;
+    }
+    .about-title-2 {
+      grid-area: about-title-2;
+    }
+
+    @include to(575px) {
+      grid-template-columns: repeat(8, 1fr);
+      gap: 0;
+      grid-template-areas:
+    "about-title about-title about-title about-title about-title about-title about-title about-title"
+    "about-title-2 about-title-2 about-title-2 about-title-2 about-title-2 about-title-2 about-title-2 about-title-2";
+    }
+  }
+
+  .about-subtitle-wrapper {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: auto;
+    gap: 20px var(--offset);
+    grid-template-areas:
+    ". . . . . . . about-title about-title about-title about-title about-title . . .";
+
+
+    .blue-text {
+      grid-area: about-title;
+    }
+
+    @include to(1024px) {
+      grid-template-columns: repeat(15, 1fr);
+      grid-template-areas: ". . . . . . . about-title about-title about-title about-title about-title about-title about-title .";
+    }
+
+    @include to(575px) {
+      grid-template-columns: repeat(8, 1fr);
+      gap: 0;
+      grid-template-areas:
+    "about-title about-title about-title about-title about-title about-title about-title about-title";
+    }
+  }
+
+  .section-2-info {
+    margin-top: 60px;
+  }
+
+  .button-style {
+    margin: 60px auto 0;
+  }
+
+  .big-margin {
+    margin-top: 240px;
+
+    @include to(1024px) {
+      margin-top: 100px;
+    }
+  }
+  @include to(1024px) {
+    .about-section-3 {
+      .fiora-italic {
+        margin-bottom: 60px;
+      }
+    }
+  }
+
+}

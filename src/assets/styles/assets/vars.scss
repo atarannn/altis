@@ -1,0 +1,120 @@
+$default-font: "fiorina", sans-serif;
+$default-font2: "fiorina-italic", sans-serif;
+$default-font3: "suisse", sans-serif;
+$default-font4: "suisse-light", sans-serif;
+
+
+$mc: #004994;
+
+$text: #6F8193;
+
+$lbc:#B8CADC;
+$lbc2: #54708D;
+
+$svg: #8D9FB0;
+$svg2: #E4E4E4;
+
+$wc: #fff;
+
+$bc: #F2F2F2;
+$bc2: #EAEAEA;
+
+:root {
+  --header-h: 185px;
+  --header-logo-h: 45px;
+
+  --fields: 130px;
+  --offset: 60px;
+
+  --margin: 100px;
+  --section-margin: 200px;
+  --section-padding: 350px;
+  --section-padding-2: 250px;
+
+  --text-offset: 80px;
+
+  --default-font: 160px;
+  --default-font-2: 100px;
+  --default-font-3: 65px;
+  --default-font-4: 20px;
+  --default-font-5: 16px;
+  --default-font-6: 14px;
+
+  --btn: 130px;
+}
+
+@media screen and( max-width: 1600px) {
+  :root {
+    --header-h: 115px;
+    --header-logo-h: 35px;
+
+    --fields: 100px;
+    --offset: 40px;
+
+    --text-offset: 50px;
+
+    --margin: 50px;
+    --section-margin: 150px;
+    --section-padding: 250px;
+    --section-padding-2: 150px;
+
+    --default-font: 110px;
+    --default-font-2: 55px;
+    --default-font-3: 35px;
+    --default-font-4: 14px;
+    --default-font-5: 12px;
+    --default-font-6: 11px;
+
+    --btn: 110px;
+  }
+}
+
+@media screen and( max-width: 1024px) {
+  :root {
+    --header-h: 110px;
+    --header-logo-h: 45px;
+
+    --fields: 40px;
+    --offset: 40px;
+
+    --text-offset: 50px;
+
+    --margin: 50px;
+    --section-margin: 100px;
+    --section-padding: 150px;
+    --section-padding-2: 100px;
+
+    --default-font: 80px;
+    --default-font-2: 45px;
+    --default-font-3: 35px;
+    --default-font-4: 14px;
+    --default-font-5: 12px;
+    --default-font-6: 11px;
+
+    --btn: 110px;
+  }
+}
+
+@media screen and( max-width: 575px) {
+  :root {
+    --header-h: 80px;
+    --header-logo-h: 40px;
+
+    --fields: 15px;
+    --offset: 20px;
+
+    --text-offset: 20px;
+
+    --margin: 20px;
+    --section-margin: 100px;
+    --section-padding: 120px;
+    --section-padding-2: 100px;
+
+    --default-font: 40px;
+    --default-font-2: 35px;
+    --default-font-3: 25px;
+    --default-font-4: 12px;
+    --default-font-5: 12px;
+    --default-font-6: 10px;
+  }
+}

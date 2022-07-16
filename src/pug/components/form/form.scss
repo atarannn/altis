@@ -1,0 +1,524 @@
+.form-wrapper.active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: painted;
+}
+
+.form-not-active {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form-thanks-wrap {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+
+  .title {
+    max-width: 70%;
+    line-height: 100%;
+    margin-bottom: 80px;
+
+    @include to(1024px) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.form-thanks-wrap.form-thanks-active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+  transition: visibility, opacity .3s ease-in-out;
+}
+
+.form-wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 101;
+  width: 100%;
+  height: 100%;
+  background: $bc2;
+  pointer-events: none;
+
+  align-items: center;
+  justify-content: center;
+
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  display: flex;
+
+  .video-btn-container {
+    margin-top: 0;
+  }
+}
+
+.form-wrapper-relative {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  .vector {
+    position: absolute;
+    right: calc(var(--fields) *  (-1));
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+
+    @include to(1024px) {
+      display: none;
+    }
+  }
+}
+
+.form-close-wrap.video-btn-container {
+  margin-top: 0;
+}
+
+.form-close-wrap {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  cursor: pointer;
+
+  @include to(1024px) {
+    top: 40px;
+  }
+
+  @include to(575px) {
+    top: 15px;
+  }
+
+  .form-close.cerchio {
+    &::before {
+      background: transparent;
+    }
+  }
+
+  .form-close {
+    background: transparent;
+    border: 1px solid rgba(111, 129, 147, 0.25);
+    position: relative;
+
+    @include to(575px) {
+      border: 0;
+      height: 15px;
+      width: 15px;
+    }
+
+    span {
+      content: '';
+      height: 2px;
+      width: 22px;
+      background: $mc;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(135deg);
+
+      &:last-child {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+  }
+}
+
+form {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: opacity, visibility .3s ease-in-out;
+  &.no-active-form {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity, visibility .3s ease-in-out;
+  }
+}
+
+.form-title-wrap {
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 25px var(--offset);
+  grid-auto-flow: row;
+  grid-template-areas:
+    "title title title title title title title title title title title title title title title"
+    "title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2";
+
+  @include to(1024px) {
+    grid-template-columns: repeat(10, 1fr);
+    gap: 15px var(--offset);
+    grid-template-areas:
+    "title title title title title title title title title title"
+    "title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2";
+
+    .title-img {
+      display: none;
+    }
+  }
+
+  @include to(575px) {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0;
+    grid-template-areas:
+    "title title title title title title title title"
+    "title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2";
+
+  }
+}
+
+
+.form-title {
+  grid-area: title;
+}
+
+.form-title-2 {
+  grid-area: title-2;
+}
+
+.form-inputs-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 80px;
+
+  @include to(1600px) {
+    margin-top: 50px;
+  }
+
+  @include to(1024px) {
+    flex-direction: column;
+    .video-btn-container {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+
+  @include to(575px) {
+    margin-top: 20px;
+    .video-btn-container {
+      margin-left: 0;
+      margin-right: auto;
+      margin-top: 0;
+    }
+  }
+
+  .form-input-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 35%;
+    margin-right: var(--offset);
+
+    @include to(1025px) {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 40px;
+    }
+
+    &:last-child {
+      @include to(1024px) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.form-field-text {
+  @include suisse(var(--default-font-5), $text, 135%, left, uppercase);
+  margin-bottom: 15px;
+
+  @include to(1600px) {
+    margin-bottom: 10px;
+  }
+}
+
+.form-field:not(#t) {
+  position: relative;
+  background: $wc;
+  border-radius: 5px;
+  border: none;
+  transition: all 0.3s;
+}
+
+[data-animation="focus"] .input-message {
+  position: absolute;
+  top: 50%;
+  left: var(--input-padding);
+  z-index: 3;
+  padding: 0 7px;
+  display: flex;
+  font-weight: 500;
+  font-size: 14px;
+  transform: translate(0%, -50%);
+  user-select: none;
+  pointer-events: none;
+  background-color: #8e8e8e;
+  transition: all 0.16s cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+}
+
+.form-field-input {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 90px;
+
+  @include to(1600px) {
+    height: 75px;
+  }
+
+  @include to(575px) {
+    height: 57px;
+  }
+}
+
+.form-field__input {
+  text-transform: uppercase;
+  width: 100%;
+  height: 100%;
+  padding-left: 40px;
+  background: none;
+  border: none;
+
+  &::placeholder {
+    @include suisse(var(--default-font-4), $mc, 130%, left, uppercase);
+  }
+  &:focus + .form-field-message {
+    opacity: 1;
+  }
+
+  @include suisse(var(--default-font-4), $mc, 130%, left, uppercase);
+  @include to(575px) {
+    padding-left: 20px;
+  }
+}
+
+.mob-ukraine-tell {
+  @include to(575px) {
+    padding-left: 40px;
+    .mask-absolute {
+      padding-left: 40px;
+    }
+    .form-field__input {
+      padding-left: 0;
+    }
+  }
+  img {
+    display: none;
+    @include to(575px) {
+      display: flex;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      z-index: 100;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.main-button {
+  margin: 60px 0 0 auto;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1em;
+  color: #CFA46E;
+  border: none;
+  background: none;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.mask-absolute {
+  text-transform: uppercase;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+
+  width: 100%;
+  height: 100%;
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  border-radius: 5px;
+
+  background: $wc;
+  @include suisse(var(--default-font-4), $mc, 130%, left, uppercase);
+
+  @include to(575px) {
+    padding-left: 20px;
+  }
+}
+
+[data-animation="focus"] .form-field__input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+}
+[data-animation="none"] .form-field__input {
+  width: 100%;
+  border: none;
+}
+
+[data-animation="none"] .input-message {
+  text-transform: lowercase;
+  text-transform: lowercase;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  display: flex;
+  width: 100%;
+  min-height: 12px;
+  transform: translate(0%, 100%);
+  font-family: $default-font3;
+
+  @include to(575px) {
+    font-size: 11px;
+  }
+}
+
+
+[data-field-input][data-status="field--inactive"]:not(#r) {
+  .input-message {
+    text-transform: uppercase;
+  }
+}
+
+[data-field-input][data-status="field--active"]:not(#r) {
+  border-color: $mc;
+  .input-message {
+    color: $mc;
+  }
+}
+
+[data-field-input][data-status="field--error"]:not(#r) {
+  border-color: #EA4041;
+  .input-message {
+    color: #EA4041;
+  }
+}
+
+[data-field-input][data-status="field--success"]:not(#r) {
+  border-color: #96C480;
+  .input-message {
+    color: #96C480;
+  }
+}
+
+.selected:not(#f) .input-message {
+  top: 0;
+  font-size: 10px;
+}
+
+.requaired-block {
+  &-ico {
+    width: 25px;
+    height: 25px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.requaired-block {
+  &__ico {
+    width: 25px;
+    height: 25px;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__text {
+    font-size: vw(16);
+    line-height: 170%;
+    margin: 0px vw(18);
+    white-space: nowrap;
+
+    color: #BBBEC2;
+  }
+}
+
+.form-textarea {
+  position: relative;
+  margin: 82px 0 0 0;
+  textarea {
+    padding: 0;
+    height: 115px;
+    width: 100%;
+    display: flex;
+    background: none;
+    font-size: 28px;
+    line-height: 100%;
+    color: #FFFFFF;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    &::placeholder {
+      color: #ffffff;
+    }
+    &:focus + .form-field-message {
+      opacity: 1;
+    }
+  }
+}
+
+.form-field-message {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  font-size: 12px;
+  line-height: 120%;
+  color: #828282;
+  transform: translateY(calc(-100% - 10px));
+}
+
+.requaired-block-ico--position {
+  position: absolute;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+}

@@ -1,0 +1,52 @@
+extends ../layout/main
+block variable
+	-
+		var class_page = 'page-404'
+
+
+
+block meta
+	title= '404'
+	meta(name='description', content='')
+block head
+		link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+	script(defer src='./assets/scripts/vendors.bundle.js')
+	script(defer src='./assets/scripts/index.bundle.js')
+	script(defer src='./assets/scripts/libs.js')
+	script(defer src='./assets/scripts/index.js')
+	script(defer src='./assets/scripts/header.js')
+	script(defer src='./assets/scripts/animation.js')
+	script(defer src='./assets/scripts/btn-cursor.js')
+
+block content
+	section(class="page404-wrap fields")
+		div(class="page404")
+			div(class="img1-404 title-img")
+				img(src="assets/images/404/1.jpg" alt="img")
+			div(class="text1-404 title") 404
+			div(class="img2-404 title-img")
+				img(src="assets/images/404/2.jpg" alt="img")
+			div(class="text2-404 title") 404
+			div(class="img3-404 title-img")
+				img(src="assets/images/404/3.jpg" alt="img")
+			div(class="text3-404 title") 404
+			div(class="img4-404 title-img")
+				img(src="assets/images/404/4.jpg" alt="img")
+			div(class="text4-404 title") 404
+			div(class="img5-404 title-img")
+				img(src="assets/images/404/5.jpg" alt="img")
+			div(class="text5-404 title") 404
+
+		a(href="index.html").video-btn-container
+			.cerchio
+				<svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="65" cy="65" r="65"/>
+				</svg>
+				span на головну
+
+
+block header
+	header.header
+		include ../includes/header.pug
+

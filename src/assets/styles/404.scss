@@ -1,0 +1,100 @@
+.page404-wrap {
+  height: 100vh;
+  width: 100%;
+  padding-top: var(--header-h);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.page404 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 20px var(--offset);
+  grid-auto-flow: row;
+  grid-template-areas:
+    "img1-404 img1-404 img1-404 text1-404 text1-404 text1-404 img2-404 img2-404 img2-404 text2-404 text2-404 text2-404 img3-404 img3-404 img3-404"
+    "text3-404 text3-404 text3-404 img4-404 img4-404 img4-404 text4-404 text4-404 text4-404 img5-404 img5-404 img5-404 text5-404 text5-404 text5-404";
+
+  margin-bottom: 60px;
+  justify-items: center;
+
+  @include to(1440px) {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+    "text1-404 text1-404 text1-404 img2-404 img2-404 img2-404 text2-404 text2-404 text2-404 img3-404 img3-404 img3-404"
+    "img4-404 img4-404 img4-404 text4-404 text4-404 text4-404 img5-404 img5-404 img5-404 text5-404 text5-404 text5-404";
+  }
+
+  @include to(1024px) {
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas:
+    "text1-404 text1-404 text1-404 img2-404 img2-404 img2-404 text2-404 text2-404 text2-404"
+    "img4-404 img4-404 img4-404 text4-404 text4-404 text4-404 img5-404 img5-404 img5-404";
+  }
+
+  @include to(575px) {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas:
+    "text1-404 text1-404 text1-404 img2-404 img2-404 img2-404 text2-404 text2-404 text2-404"
+    "img4-404 img4-404 img4-404 text4-404 text4-404 text4-404 img5-404 img5-404 img5-404";
+  }
+}
+
+.img1-404 {
+  grid-area: img1-404;
+
+  @include to(1440px) {
+    display: none;
+  }
+}
+
+.text1-404 {
+  grid-area: text1-404;
+}
+
+.img2-404 {
+  grid-area: img2-404;
+}
+
+.text2-404 {
+  grid-area: text2-404;
+}
+
+.img3-404 {
+  grid-area: img3-404;
+
+  @include to(1024px) {
+    display: none;
+  }
+}
+
+.text3-404 {
+  grid-area: text3-404;
+  @include to(1440px) {
+    display: none;
+  }
+}
+
+.img4-404 {
+  grid-area: img4-404;
+}
+
+.text4-404 {
+  grid-area: text4-404;
+}
+
+.img5-404 {
+  grid-area: img5-404;
+}
+
+.text5-404 {
+  grid-area: text5-404;
+
+  @include to(1024px) {
+    display: none;
+  }
+}

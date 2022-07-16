@@ -1,0 +1,129 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'News'
+    var id_page = 'id-news'
+    var class_page = 'class-news'
+    var breadcrumbsSubitem = [
+      {
+        label: 'новини',
+        link: pagesLink[0].news
+      }
+    ]
+
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/footer.js')
+  script(defer src='./assets/scripts/news.js')
+  script(defer src='./assets/scripts/btn-cursor.js')
+  script(defer src='./assets/scripts/anim-pages.js')
+
+block content
+  .wrapper
+    #news.fields.top-offset.page-inner-offset
+      include ../includes/breadcrumbs.pug
+      .page-wrapper-top-margin2
+        .news-title-wrap.bottom-title-margin
+          .news-title.flex-title
+            .title новини
+            .title-img.title-img-offset-left
+              img(src="assets/images/news/1.jpg" alt="img")
+        .news-wrapper
+          .filter
+            button(data-view="all").light-blue-text-3.filter-btn.active Всі
+              sup(data-filter-total-all) 15
+            button(data-view="action").light-blue-text-3.filter-btn Акції
+              sup(data-filter-action-all) 2
+            button(data-view="news").light-blue-text-3.filter-btn Новини
+              sup(data-filter-news-all) 13
+          ul.news-actions-list
+            li.card-wrapper.action
+              a(href="news-page.html").card
+                .card-top
+                  .card-top-title • акція
+                  .card-top-date.light-blue-text-3 01 / 12 / 2022
+                .overflow
+                  img(src="assets/images/news/news-card/1.jpg" alt="img")
+                .card-bottom
+                  .card-bottom-text.light-blue-text-3 Купуйте квартиру в жк Мегаполіс та отримуйте 10% знижки на паркомісце ...
+                  +svg('arrow-horizontal').svg-style2
+
+            li.card-wrapper.news
+              a(href="#").card
+                .card-top
+                  .card-top-title • новина
+                  .card-top-date.light-blue-text-3 01 / 12 / 2022
+                .overflow
+                  img(src="assets/images/news/news-card/2.jpg" alt="img")
+                .card-bottom
+                  .card-bottom-text.light-blue-text-3 компанія Альтіс-Девелопмент з 2011р. займається комплексним управлінням ...
+                  +svg('arrow-horizontal').svg-style2
+            li.card-wrapper.news
+              a(href="#").card
+                .card-top
+                  .card-top-title • новина
+                  .card-top-date.light-blue-text-3 01 / 12 / 2022
+                .overflow
+                  img(src="assets/images/news/news-card/2.jpg" alt="img")
+                .card-bottom
+                  .card-bottom-text.light-blue-text-3 компанія Альтіс-Девелопмент з 2011р. займається комплексним управлінням ...
+                  +svg('arrow-horizontal').svg-style2
+
+            li.card-wrapper.action
+              a(href="#").card
+                .card-top
+                  .card-top-title • акція
+                  .card-top-date.light-blue-text-3 01 / 12 / 2022
+                .overflow
+                  img(src="assets/images/news/news-card/3.jpg" alt="img")
+                .card-bottom
+                  .card-bottom-text.light-blue-text-3 Купуйте квартиру в жк Мегаполіс та отримуйте 10% знижки на паркомісце ...
+                  +svg('arrow-horizontal').svg-style2
+
+            li.card-wrapper.news
+              a(href="#").card
+                .card-top
+                  .card-top-title • новина
+                  .card-top-date.light-blue-text-3 01 / 12 / 2022
+                .overflow
+                  img(src="assets/images/news/news-card/1.jpg" alt="img")
+                .card-bottom
+                  .card-bottom-text.light-blue-text-3 компанія Альтіс-Девелопмент з 2011р. займається комплексним управлінням ...
+                  +svg('arrow-horizontal').svg-style2
+            li.card-wrapper.news
+              a(href="#").card
+                .card-top
+                  .card-top-title • новина
+                  .card-top-date.light-blue-text-3 01 / 12 / 2022
+                .overflow
+                  img(src="assets/images/news/news-card/2.jpg" alt="img")
+                .card-bottom
+                  .card-bottom-text.light-blue-text-3 компанія Альтіс-Девелопмент з 2011р. займається комплексним управлінням ...
+                  +svg('arrow-horizontal').svg-style2
+
+            .load-more.video-btn-container
+              .cerchio
+                <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="65" cy="65" r="65"/>
+                </svg>
+                span більше
+
+
+
+
+
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

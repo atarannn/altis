@@ -1,0 +1,581 @@
+#id-page-projects, #id-projects {
+  .header {
+    background: $bc2;
+  }
+}
+
+#projects {
+  .hide {
+    display: none;
+  }
+  .active {
+    color: $mc;
+    transition: color .3s ease-in-out;
+  }
+  .projects-title-wrap {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 20px var(--offset);
+    grid-auto-flow: row;
+    grid-template-areas:
+    ". . title title title title title title title title title title title title title"
+    "title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2"
+    ". . title-3 title-3 title-3 title-3 title-3 title-3 title-3 title-3 title-3 title-3 title-3 title-3 title-3";
+
+    margin-bottom: 150px;
+
+    @include to(1600px) {
+      margin-bottom: 100px;
+      gap: 15 var(--offset);
+    }
+
+    @include to(1024px) {
+      margin-bottom: 50px;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-areas:
+      "title title title title title title title title title title"
+      "title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2"
+      "title-3 title-3 title-3 title-3 title-3 title-3 title-3 title-3 title-3 title-3";
+    }
+
+    @include to(575px) {
+      margin-bottom: 20px;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-areas:
+      "title title title title title title title title"
+      "title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2"
+      "title-3 title-3 title-3 title-3 title-3 title-3 title-3 title-3";
+    }
+
+    .projects-title {
+      grid-area: title;
+    }
+
+    .projects-title-2 {
+      grid-area: title-2;
+    }
+
+    .projects-title-3 {
+      grid-area: title-3;
+    }
+  }
+}
+
+.projects-info-wrap {
+  .project-info-title-mobile {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 14px var(--fields);
+    border-bottom: 2px solid #C5CBD0;
+    border-top: 2px solid #C5CBD0;
+    @include to(575px) {
+      display: flex;
+    }
+    .filter-mob-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      svg {
+        width: 6px;
+        height: 4px;
+        margin-left: 5px;
+      }
+    }
+  }
+  .projects-info-title {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: auto;
+    gap: 0 var(--offset);
+    grid-auto-flow: row;
+    grid-template-areas:
+    "filter-title filter-title filter-title projects-info projects-info projects-info projects-info projects-info projects-info projects-info projects-info projects-info projects-info projects-info projects-info";
+
+    border-bottom: 2px solid #C5CBD0;
+    border-top: 2px solid #C5CBD0;
+
+    @include to(1600px) {
+      grid-template-areas:
+          "filter-title filter-title filter-title filter-title projects-info projects-info projects-info projects-info projects-info projects-info projects-info projects-info projects-info projects-info projects-info";;
+    }
+
+    @include to(1024px) {
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-areas:
+    "filter-title filter-title filter-title projects-info projects-info projects-info projects-info projects-info projects-info projects-info";
+    }
+
+    @include to(575px) {
+      display: none;
+    }
+
+    .filter-title {
+      grid-area: filter-title;
+      padding: 22px 0 22px var(--fields);
+    }
+
+    .projects-title {
+      grid-area: projects-info;
+      padding: 22px 0;
+    }
+  }
+
+  .projects-info {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: auto;
+    gap: 0 var(--offset);
+    grid-auto-flow: row;
+    grid-template-areas:
+    "filter filter filter projects projects projects projects projects projects projects projects projects projects projects projects";
+
+    @include to(1600px) {
+      grid-template-areas:
+    "filter filter filter filter projects projects projects projects projects projects projects projects projects projects projects";
+    }
+
+    @include to(1024px) {
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-areas:
+     "filter filter filter projects projects projects projects projects projects projects";
+    }
+
+    @include to(575px) {
+      grid-template-columns: repeat(8, 1fr);
+      gap: 0;
+      grid-template-areas:
+     "projects projects projects projects projects projects projects projects";
+      padding: 0 var(--fields);
+    }
+
+    .filter {
+      grid-area: filter;
+      border-right: 2px solid #C5CBD0;
+
+      @include to(575px) {
+        display: none;
+      }
+
+      .filter-location, .filter-year{
+        border-bottom: 2px solid #C5CBD0;
+        padding: 30px 0 30px var(--fields);
+
+        .blue-text-2 {
+          margin-bottom: 20px;
+        }
+
+        .filter-radio {
+          margin-top: 15px;
+
+          &-input {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 10px;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            .light-blue-text-3 {
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    .projects {
+      grid-area: projects;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      //grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: var(--offset);
+      padding: 60px var(--fields) var(--section-padding) 0;
+      min-height: 100vh;
+
+      @include to(1024px) {
+        flex-direction: column;
+      }
+
+      @include to(575px) {
+        min-height: 30vh;
+        //grid-template-columns: 1fr;
+        gap: 0;
+        padding: 30px 0 var(--section-padding-2);
+      }
+
+      &-left {
+        width: 50%;
+        @include to(1024px) {
+          width: 100%;
+        }
+        @include from(1023px) {
+          .project-card-wrap {
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+      &-right {
+        width: 50%;
+        padding-top: 100px;
+        @include to(1024px) {
+          width: 100%;
+          padding-top: 0;
+        }
+        .project-card-wrap {
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .project-card-wrap {
+        width: 100%;
+        margin-bottom: 60px;
+
+        a {
+          width: 100%;
+        }
+
+        @include to(1024px) {
+          width: 100%;
+        }
+
+        @include to(575px) {
+          margin-bottom: 30px;
+        }
+
+        .project-card {
+          position: relative;
+
+          img {
+            height: 755px;
+
+            @include to(1600px) {
+              height: 550px;
+            }
+
+            @include to(575px) {
+              height: 396px;
+            }
+          }
+
+          &-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 40px 40px 0;
+
+            @include to(1600px) {
+              padding: 30px 30px 0;
+            }
+          }
+
+          &-title {
+            position: absolute;
+            bottom: 0;
+            top: 60%;
+            left: 0;
+            right: 0;
+            padding: 0 40px 40px;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+
+            display: flex;
+            align-items: flex-end;
+
+            @include to(1600px) {
+              padding: 0 30px 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#project-page {
+  .project-info-top {
+    border-top: 2px solid #C5CBD0;
+    padding-top: 20px;
+    margin-bottom: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    @include to(1600px) {
+      padding-top: 15px;
+      margin-bottom: 30px;
+    }
+
+    @include to(575px) {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding-top: 20px;
+    }
+
+    .project-info {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+
+      .blue-text-2 {
+        margin-right: 10px;
+      }
+
+        @include to(575px) {
+          margin-bottom: 15px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+    }
+  }
+  .project-img {
+    width: 100%;
+    height: auto;
+  }
+  .project-info-bottom {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: auto;
+    gap: 20px var(--offset);
+    grid-template-areas:
+    "project-info-bottom-left project-info-bottom-left project-info-bottom-left project-info-bottom-left project-info-bottom-left project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right";
+    margin-top: 150px;
+
+    @include to(1600px) {
+      grid-template-areas:
+      "project-info-bottom-left project-info-bottom-left project-info-bottom-left project-info-bottom-left project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right";
+      margin-top: 100px;
+    }
+
+    @include to(1024px) {
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-areas:
+      "project-info-bottom-left project-info-bottom-left project-info-bottom-left project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right project-info-bottom-right";
+      margin-top: 50px;
+    }
+
+    @include to(575px) {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-top: 50px;
+      gap: 50px;
+    }
+
+    .project-info-bottom-left {
+      grid-area: project-info-bottom-left;
+
+      &-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        margin-bottom: 40px;
+
+        @include to(1600px) {
+          margin-bottom: 30px;
+        }
+
+        @include to(575px) {
+          margin-bottom: 20px;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .blue-text-2 {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .project-info-bottom-right {
+      grid-area: project-info-bottom-right;
+
+      &-text {
+        margin-top: 60px;
+        margin-bottom: 60px;
+
+        @include to(1600px) {
+          margin-top: 30px;
+          margin-bottom: 30px;
+
+          .light-blue-text {
+            margin-bottom: 20px;
+          }
+        }
+
+        @include to(575px) {
+          margin-top: 20px;
+          margin-bottom: 50px;
+        }
+
+        .light-blue-text {
+          margin-bottom: 30px;
+
+          @include to(575px) {
+            margin-bottom: 20px;
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .project-info-bottom-left, .project-info-bottom-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+  }
+
+  .main-swiper {
+    margin-top: 150px;
+    margin-bottom: 150px;
+
+    @include to(1600px) {
+      margin-top: 100px;
+      margin-bottom: 100px;
+    }
+
+    @include to(1024px) {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+
+    @include to(575px) {
+      margin-top: 100px;
+      margin-bottom: 60px;
+    }
+  }
+
+  .video-btn-container {
+    margin-top: 0;
+  }
+}
+
+.icon--cursor {
+  position: fixed;
+  height: var(--btn);
+  width: var(--btn);
+  background: $mc;
+  border-radius: 100%;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 103;
+  transition: transform 0.2s ease-in-out;
+  pointer-events: none;
+  cursor: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include suisse(var(--default-font-6), $wc, 100%, left, uppercase);
+}
+
+.filter-mobile {
+  width: 100vw;
+  height: 100vh;
+  z-index: 98;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  visibility: hidden;
+  opacity: 0;
+  background: $bc2;
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  .filter-close {
+    height: 15px;
+    width: 15px;
+    position: relative;
+    margin: 15px 15px 15px auto;
+    span {
+      content: '';
+      height: 2px;
+      width: 22px;
+      background: $mc;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(135deg);
+
+      &:last-child {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+    }
+  }
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    .filter-mobile-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #C5CBD0;
+      border-bottom: 1px solid #C5CBD0;
+      padding: 15px var(--fields);
+      width: 100%;
+    }
+    .filter-location, .filter-year {
+      padding: 19px var(--fields);
+      width: 100%;
+      .filter-radio {
+        margin-top: 15px;
+        &-input {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin-bottom: 10px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          .light-blue-text-3 {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+    .filter-year {
+      border-top: 1px solid #C5CBD0;
+      border-bottom: 1px solid #C5CBD0;
+    }
+    .video-btn-container {
+      margin-left: var(--fields);
+      margin-top: 20px;
+    }
+  }
+}

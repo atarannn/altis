@@ -1,0 +1,196 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+
+  width: 100%;
+  height: var(--header-h);
+
+  background: $bc;
+
+  transition: all .3s ease-in-out;
+
+  &.not-on-top {
+    transition: all .3s ease-in-out;
+    height: calc(var(--header-h) - 20px);
+    border-bottom: 1px solid #EAEAEA;
+    background-color: $wc;
+    .logo-mob {
+      img:last-child {
+        opacity: 0;
+        transition: all .3s ease-in-out;
+      }
+    }
+  }
+  .logo {
+    height: var(--header-logo-h);
+    img {
+      object-fit: contain;
+    }
+    @include to(575px) {
+      display: none;
+    }
+  }
+
+  .logo-mob {
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    img {
+      &:first-child {
+        margin-right: 10px;
+      }
+      &:last-child {
+        margin-top: 6px;
+        transition: all .3s ease-in-out;
+      }
+    }
+    @include to(575px) {
+      display: flex;
+    }
+  }
+
+  &-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    li {
+      padding: 0 12px;
+
+      &:first-child {
+        margin-right: 80px;
+      }
+
+      &:last-child {
+        margin-left: 80px;
+      }
+
+      &.page-active {
+        border: 1px solid $mc;
+        border-radius: 100px;
+      }
+
+      @include to(1600px) {
+        &:first-child {
+          margin-right: 50px;
+        }
+
+        &:last-child {
+          margin-left: 50px;
+        }
+      }
+
+      @include to(1024px) {
+        &:first-child {
+          margin-right: 40px;
+        }
+
+        &:last-child {
+          margin-left: 40px;
+        }
+      }
+
+      a {
+        @include suisse;
+
+        @include from(1024px) {
+          @include hover-underline;
+        }
+      }
+    }
+
+    @include to(575px) {
+      display: none;
+    }
+  }
+
+  &-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &-phone {
+      margin-right: var(--text-offset);
+
+      & a {
+        @include suisse(var(--default-font-4), $mc, 150%, left, uppercase);
+
+        @include from(1024px) {
+          @include hover-underline;
+        }
+      }
+
+      @include to(1024px) {
+        display: none;
+      }
+    }
+
+    &-button {
+      margin-right: var(--text-offset);
+
+      & span {
+        @include suisse;
+
+        @include from(1024px) {
+          @include hover-underline;
+        }
+      }
+
+      @include to(1024px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.header-right-phone-mob {
+  display: none;
+  margin-right: var(--text-offset);
+
+  @include to(1024px) {
+    display: flex;
+  }
+}
+
+.header-right-menu {
+  display: none;
+  height: 40px;
+  width: 40px;
+  background: $mc;
+  border-radius: 200px;
+  margin-left: var(--text-offset);
+
+  position: relative;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  span {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    content: "";
+    display: flex;
+    height: 1px;
+    width: 9px;
+    background: $wc;
+
+    &:last-child {
+      margin-top: 5px;
+    }
+  }
+
+  @include to(575px) {
+    display: flex;
+  }
+}

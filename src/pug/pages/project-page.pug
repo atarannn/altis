@@ -1,0 +1,123 @@
+
+extends ../layout/main
+block variable
+    -
+        var title_page = 'Project Page'
+        var id_page = 'id-page-projects'
+        var class_page = 'class-page-projects'
+        var breadcrumbsSubitem = [
+            {
+                label: 'Сторінка проєкту',
+                link: pagesLink[0].project-page
+            }
+        ]
+        var slider = [
+            {
+                img: 'projects/project-page/slider/1.jpg',
+                text: '/01'
+            },
+            {
+                img: 'projects/project-page/slider/2.jpg',
+                text: '/02'
+            },
+            {
+                img: 'projects/project-page/slider/3.jpg',
+                text: '/03'
+            },
+            {
+                img: 'projects/project-page/slider/4.jpg',
+                text: '/04'
+            }
+        ]
+
+block meta
+    title= title_page
+    meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+    script(defer src='./assets/scripts/vendors.bundle.js')
+    script(defer src='./assets/scripts/index.bundle.js')
+    script(defer src='./assets/scripts/libs.js')
+    script(defer src='./assets/scripts/index.js')
+    script(defer src='./assets/scripts/header.js')
+    script(defer src='./assets/scripts/footer.js')
+    script(defer src='./assets/scripts/projects.js')
+    script(defer src='./assets/scripts/slider.js')
+    script(defer src='./assets/scripts/btn-cursor.js')
+    script(defer src='./assets/scripts/anim-pages.js')
+
+block content
+    .wrapper
+        #project-page.fields.top-offset.page-inner-offset
+            include ../includes/breadcrumbs.pug
+            .page-wrapper-top-margin2
+                .project-title-wrap
+                    .project-title.title жк рівердейл
+                .project-info-wrap.page-wrapper-top-margin2
+                    .project-info-top
+                        .project-info
+                            .blue-text-2 • категорія:
+                            .light-blue-text-3(data-category) житловий комплекс
+                        .project-info
+                            .blue-text-2 • місто:
+                            .light-blue-text-3(data-city) київ
+                        .project-info
+                            .blue-text-2 • статус:
+                            .light-blue-text-3(data-status) будується
+                        .project-info
+                            .blue-text-2 • рік:
+                            .light-blue-text-3(data-year) 2021
+                    .project-img(data-project-img).overflow
+                        img(src="assets/images/projects/project-page/1.jpg" alt="img")
+                    .project-info-bottom
+                        .project-info-bottom-left
+                            .project-info-bottom-left-text
+                                .blue-text-2 Місцезнаходження:
+                                .light-blue-text-3(data-project-location) метро “Палац Україна”
+                            .project-info-bottom-left-text
+                                .blue-text-2 Площа жилого фонду:
+                                .light-blue-text-3(data-project-area) 77 650 м2
+                            .project-info-bottom-left-text
+                                .blue-text-2 Загальна площа:
+                                .light-blue-text-3(data-project-total-area) 48 505 м2
+                            .project-info-bottom-left-text
+                                .blue-text-2 Загальна кількість квартир:
+                                .light-blue-text-3(data-project-apartments) 676 квартир
+
+                        .project-info-bottom-right
+                            .fiora-italic-blue(data-project-title) Рівердейл стане новим місцем сили в Києві. Поєднання архітектури та дизайну.
+                            .project-info-bottom-right-text(data-project-text)
+                                .light-blue-text Будівля Київпроекту вважається місцем народження київського модернізму, який став символом нового архітектурного мислення. Тут працювали видатні архітектори країни. Архітектори використовують основні прийоми Баухауса — однієї з найвпливовіших архітектурних шкіл Європи та світу. Будинок буде виконаний у сучасному, але стриманому стилі з використанням чітких геометричних форм.
+                                .light-blue-text Внутрішня інфраструктура об’єднає 7 тематичних лабів і стане місцем для народження прогресивних трендів. Тут передбачені всі умови для роботи та розвитку бізнесу. Прогулянковий пасаж, атріум, амфітеатр і головна площа — в KYЇVPROEKT Citу Space організують сучасний суспільний простір, який буде доступний всім киянам. З вікон квартир відкривається вид на головні архітектурні пам’ятки Києва.
+                            a(href="about.html").video-btn-container
+                                .cerchio
+                                    <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="65" cy="65" r="65"/>
+                                    </svg>
+                                    span сайт жк
+                    .main-swiper
+                        .swiper-wrapper
+                            each i in slider
+                                .swiper-slide
+                                    +img(i.img)
+                                    .light-blue-text-3=i.text
+                        .swiper-button-wrapper
+                            .swiper-button-prev(data-prev).svg-style2
+                                +svg('arrow-horizontal')
+                            .swiper-button-next(data-next).svg-style2
+                                +svg('arrow-horizontal')
+                        .swiper-scrollbar
+                    a(href="about.html").video-btn-container.center-btn
+                        .cerchio
+                            <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="65" cy="65" r="65"/>
+                            </svg>
+                            span наступний проєкт
+
+
+block footer
+    include ../includes/footer.pug
+
+block header
+    include ../includes/header.pug

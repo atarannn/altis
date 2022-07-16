@@ -1,0 +1,30 @@
+.breadcrumbs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 1;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .breadcrumbs-item {
+      & a{
+        @include suisse(var(--default-font-6), $text, 100%, left, uppercase);
+
+      }
+
+      span {
+        margin-left: 10px;
+        margin-right: 10px;
+        color: $mc;
+      }
+    }
+
+    .breadcrumbs-item__active a{
+      @include suisse(var(--default-font-6), $text, 100%, left, uppercase);
+    }
+  }
+}

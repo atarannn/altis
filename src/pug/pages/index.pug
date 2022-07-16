@@ -1,0 +1,216 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'home'
+    var class_page = 'home'
+
+    var objects = [
+      {
+        title: 'Рівердейл',
+        text: 'житловий комплекс в києві',
+        img: 'home/section-3/2.jpg',
+        date: '2021'
+      },
+      {
+        title: 'Терракота',
+        text: 'житловий комплекс в києві',
+        img: 'home/section-3/3.jpg',
+        date: '2020'
+      },
+      {
+        title: 'Graphite',
+        text: 'житловий комплекс в борисполі',
+        img: 'home/section-3/4.jpg',
+        date: '2019'
+      },
+      {
+        title: 'Первоцвет',
+        text: 'житловий комплекс в борисполі',
+        img: 'home/section-3/5.jpg',
+        date: '2020'
+      },
+      {
+        title: 'Номер 1',
+        text: 'житловий комплекс в борисполі',
+        img: 'home/section-3/6.jpg',
+        date: '2018'
+      }
+    ];
+    var slider = [
+      {img: 'home/section-4/2.svg'},
+      {img: 'home/section-4/3.svg'},
+      {img: 'home/section-4/4.svg'},
+      {img: 'home/section-4/5.svg'},
+      {img: 'home/section-4/6.svg'}
+    ]
+
+
+block meta
+  title= 'Главная'
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/footer.js')
+  script(defer src='./assets/scripts/home.js')
+  script(defer src='./assets/scripts/btn-cursor.js')
+  script(defer src='./assets/scripts/animation.js')
+block content
+  #home
+    section.section-1-wrapper
+      .section-1.fields.top-offset
+        .section1-title.flex-title
+          .title altis
+          .title-img.title-img-offset-left
+            img(src="assets/images/home/section-1/1.jpg" alt="img")
+        .section1-img-2.title-img2
+          img(src="assets/images/home/section-1/2.jpg" alt="img")
+        .section1-title-2.title development
+        .section1-text
+          .light-blue-text Альтіс-Девелопмент - будівництво та управління структурними проектами у сферах житлової, комерційної та готельної нерухомості!
+          a(href="#pagedown").pagedown
+            +svg('arrow').svg-style.main-svg-style
+        .section1-img-3.title-img3
+          img(src="assets/images/home/section-1/3.jpg" alt="img")
+
+    section#pagedown.section-2-wrapper
+      .section-2.section-inner-offset.fields
+        .section-2-title-wrap.bottom-title-margin
+          .section2-title.flex-title
+            .title-img.title-img-offset-right
+              img(src="assets/images/home/section-2/1.jpg" alt="img")
+            .title цінності
+          .section2-title-2.title компанії —
+        .section-2-info.flex-start-block
+          ul.section-2-info-list.right-offset.section-info-half
+            li.blue-text Надійність
+            li.blue-text Інноваційність
+            li.blue-text Системний підхід
+            li.blue-text Відкритість
+            li.blue-text Клієнторієнтовність
+          .section-2-info-block.section-info-half
+            .circular-img
+              img(src="assets/images/home/section-2/2.png" alt="img")
+            .blue-text Ефективне поєднання стратегічних інвестицій та оперативного керування проектами дозволяє компанії утримувати лідерські позиції на ринку девелопменту України.
+    section.section-3-wrapper
+      .section-3.section-inner-offset.fields
+        .section-3-title-wrap
+          .section3-title.title об’єкти
+          .section3-title-2.flex-title
+            .title altis
+            .title-img.title-img-offset-left
+              img(src="assets/images/home/section-3/1.jpg" alt="img")
+          .section3-title-3.title development
+        .section-3-objects-wrapper
+          each i in objects
+            .object-block(data-objects)
+              .object-block__info
+                .object-block__title(data-fx="6")
+                  a.object__title(data-img="./assets/images/" + i.img)= i.title
+                  p.object__text.light-blue-text-2=i.text
+                  +img(i.img).object__img
+                .object__date= i.date
+
+          a(href="projects.html").video-btn-container
+            .cerchio
+              <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="65" cy="65" r="65"/>
+              </svg>
+              span більше
+
+
+    section.section-4-wrapper
+      .section-4.section-inner-offset.fields
+        .section-4-title-wrap.bottom-title-margin
+          .section4-title.title партнери
+          .section4-title-2.flex-title
+            .title-img.title-img-offset-right
+              img(src="assets/images/home/section-4/1.jpg" alt="img")
+            .title компанії
+        .swiper-partners-container
+          .swiper-wrapper
+            each i in slider
+              .swiper-slide
+                +img(i.img)
+        .partners-container
+          img(src="assets/images/home/section-4/2.svg" alt="logo").width-logo
+          img(src="assets/images/home/section-4/3.svg" alt="logo").width-logo
+          img(src="assets/images/home/section-4/4.svg" alt="logo").width-logo
+          img(src="assets/images/home/section-4/5.svg" alt="logo").width-logo2
+          img(src="assets/images/home/section-4/6.svg" alt="logo").width-logo2
+    section.section-5-wrapper
+      .section-5.section-inner-offset.fields
+        .section-5-title-wrap.bottom-title-margin
+          .section5-title.flex-title
+            .title про altis
+            .title-img.title-img-offset-left
+              img(src="assets/images/home/section-5/1.jpg" alt="img")
+          .section5-title-2.title development
+        .section-5-info.grid-block
+          .circular-text
+              .blue-text Засновано в 2011 році
+          .section-info-text
+            .light-blue-text Загальна кількість об’єктів, в яких Група компаній «Альтіс» взяла участь - понад 250, з них, близько 70 - на умовах генерального підряду.
+            .light-blue-text Практично всі будівельно-монтажні роботи, включаючи влаштування внутрішніх інженерних систем, виконуються власними силами групи компаній «Альтіс».
+          .section-info-img.overflow
+            img(src="assets/images/home/section-5/2.jpg" alt="img")
+
+        .fiora-italic.top-section-margin.bottom-section-margin Пріоритет для "Альтіс-Девелопмент" — комплексні  проєкти, що дозволяють повною мірою реалізувати потенціал та розвивати території об'єктів
+
+        .numbers-wrapper.bottom-section-margin
+          .num-1
+            .light-blue-text-2 проєктів
+            .title(id="num-1")  5
+          .num-2
+            .light-blue-text-2 працює співробітників
+            .title(id="num-2")  172
+          .num-3
+            .light-blue-text-2 побудовано, М2
+            .title(id="num-3")  30008
+
+        .section-5-info-2
+          .section-5-info-2-img.circular-img
+            img(src="assets/images/home/section-5/3.png" alt="img")
+          .section-5-info-2-img2.overflow
+            img(src="assets/images/home/section-5/4.jpg" alt="img")
+          .section-5-info-2-text
+            .light-blue-text Діяльність девелопера сконцентрована на розвитку проектів з будівництва житлових, комерційних та багатофункціональних об'єктів у Києві та Київській області
+            a(href="about.html").video-btn-container
+              .cerchio
+                <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="65" cy="65" r="65"/>
+                </svg>
+                span про нас
+
+    section.section-6-wrapper
+      .section-6.section-inner-offset.fields
+        .section-6-title-wrap.bottom-title-margin
+          .section6-title.title про
+          .section6-title-2.title altis group
+        .section-6-info.grid-block
+          .circular-text
+            .blue-text понад 250 об’Єктів
+          .section-info-text
+            .light-blue-text Загальна кількість об’єктів, в яких Група компаній «Альтіс» взяла участь - понад 250, з них, близько 70 - на умовах генерального підряду.
+            .light-blue-text Практично всі будівельно-монтажні роботи, включаючи влаштування внутрішніх інженерних систем, виконуються власними силами групи компаній «Альтіс».
+            a(href="about.html").video-btn-container
+              .cerchio
+                <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="65" cy="65" r="65"/>
+                </svg>
+                span Altis group
+          .section-info-img.overflow
+            img(src="assets/images/home/section-6/1.jpg" alt="img")
+        .fiora-italic.top-section-margin За 26 років Група компаній «Альтіс» успішно завершила ряд знакових проектів національного масштабу
+
+
+block header
+  include ../includes/header.pug
+block footer
+  include ../includes/footer.pug

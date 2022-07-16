@@ -1,0 +1,326 @@
+#id-news, #id-page-news {
+  .header {
+    background: $bc2;
+  }
+}
+
+#id-news {
+  .hide {
+    display: none;
+  }
+  .active {
+    color: $mc;
+    transition: color .3s ease-in-out;
+  }
+}
+.hover-btn {
+  color: $mc;
+  transition: color .3s ease-in-out;
+}
+
+.hover-svg {
+  stroke: $svg;
+  transition: all .3s ease-in-out;
+}
+
+.action {
+  .card-top-title {
+    @include suisse(var(--default-font-5), $mc, 100%, left, uppercase);
+  }
+}
+
+.news {
+  .card-top-title {
+    @include suisse(var(--default-font-5), $text, 100%, left, uppercase);
+  }
+}
+
+#news {
+  .news-title-wrap {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: auto;
+    gap: 20px var(--offset);
+    grid-template-areas:
+    "news-title news-title news-title news-title news-title news-title news-title news-title news-title news-title news-title news-title news-title news-title news-title";
+
+    .news-title {
+      grid-area: news-title;
+    }
+    .news-img {
+      grid-area: news-img;
+    }
+  }
+
+  .news-wrapper {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: auto;
+    gap: 20px var(--offset);
+    grid-template-areas:
+    "news-filter news-filter news-filter news news news news news news news news news news news news";
+
+    @include to(575px) {
+      grid-template-columns: repeat(8, 1fr);
+      gap: 0;
+      grid-template-areas:
+              "news-filter news-filter news-filter news-filter news-filter news-filter news-filter news-filter"
+              "news news news news news news news news";
+    }
+
+    .filter {
+      grid-area: news-filter;
+      border-top: 2px solid #C5CBD0;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      @include to(575px) {
+        flex-direction: row;
+        border-top: none;
+        margin-bottom: 30px;
+      }
+
+      button {
+        margin-top: 20px;
+        position: relative;
+        transition: color .3s ease-in-out;
+        padding: 0 15px 0 0;
+
+        @include to(575px) {
+          margin-top: 0;
+          margin-right: 20px;
+        }
+
+        sup {
+          position: absolute;
+          top: -5px;
+          right: 0;
+        }
+
+        &:hover {
+          color: $mc;
+          transition: color .3s ease-in-out;
+        }
+      }
+    }
+
+    .news-actions-list {
+      grid-area: news;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: var(--offset);
+
+      @include to(1024px) {
+        grid-template-columns: 1fr;
+      }
+
+      .card-wrapper {
+        width: 100%;
+        margin-bottom: 60px;
+
+        @include to(575px) {
+          margin-bottom: 30px;
+        }
+
+        img {
+          transition: all 1.3s ease-in-out;
+
+          @include from(1023px) {
+            &:hover {
+              transform: scale(1.2);
+              transition: all 1.3s ease-in-out;
+            }
+          }
+        }
+
+        .card {
+          &-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #C5CBD0;
+
+            @include to(1600px) {
+              margin-bottom: 20px;
+            }
+          }
+
+          &-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 30px;
+
+            @include to(1600px) {
+              margin-top: 20px;
+            }
+
+            &-text {
+              width: 70%;
+              line-height: 160%;
+            }
+          }
+        }
+      }
+
+      .load-more {
+        margin-top: 130px;
+
+        @include to(1600px) {
+          margin-top: 100px;
+        }
+
+        @include to(575px) {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+}
+
+#news-page {
+  .news-page-title {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: auto;
+    gap: 20px var(--offset);
+    grid-template-areas:
+    "btn btn btn title title title title title title title title title title title .";
+    margin-bottom: 60px;
+
+    @include to(575px) {
+      grid-template-columns: repeat(8, 1fr);
+      gap: 0;
+      grid-template-areas:
+    "title title title title title title title title";
+      margin-bottom: 30px;
+    }
+
+    .button-back {
+      grid-area: btn;
+
+      @include to(575px) {
+        display: none;
+      }
+
+      svg {
+        transform: rotate(180deg);
+
+        &:hover {
+          stroke: $svg;
+          transition: all .3s ease-in-out;
+        }
+      }
+    }
+
+    .fiora-italic-blue {
+      grid-area: title;
+    }
+  }
+
+  .news-page-info {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: auto;
+    gap: 20px var(--offset);
+    grid-template-areas:
+    "copy copy copy info info info info info info info info info info info info";
+
+    @include to(575px) {
+      grid-template-columns: repeat(8, 1fr);
+      gap: 0;
+      grid-template-areas:
+    "info info info info info info info info";
+    }
+
+    .copy_link-wrapper {
+      grid-area: copy;
+      padding-top: 20px;
+      border-top: 2px solid #C5CBD0;
+      @include to(575px) {
+        display: none;
+      }
+    }
+
+    .copy_link {
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      transition: color .3s ease-in-out;
+
+      .light-blue-text-3 {
+        transition: color .3s ease-in-out;
+      }
+
+      svg {
+        margin-right: 10px;
+        height: 20px;
+        width: 20px;
+      }
+
+      &:hover {
+        .light-blue-text-3 {
+          color: $mc;
+          transition: color .3s ease-in-out;
+        }
+      }
+    }
+
+    .info-wrap {
+      grid-area: info;
+      border-top: 2px solid #C5CBD0;
+      padding-top: 20px;
+
+      .card {
+        &-top {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 40px;
+
+          @include to(575px) {
+            margin-bottom: 20px;
+          }
+        }
+
+        .card-bottom {
+          margin-top: 60px;
+          width: 90%;
+
+          @include to(575px) {
+            width: 100%;
+            margin-top: 20px;
+          }
+
+          .light-blue-text {
+            margin-bottom: 30px;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            @include to(575px) {
+              margin-bottom: 20px;
+            }
+          }
+        }
+      }
+
+      .video-btn-container {
+        margin-top: 100px;
+        @include to(575px) {
+          margin-top: 50px;
+        }
+      }
+    }
+  }
+}
+

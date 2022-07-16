@@ -1,0 +1,708 @@
+.section-1 {
+  &-wrapper {
+    padding-bottom: 250px;
+    background-color: $bc;
+    overflow: hidden;
+    position: relative;
+    @include to(1024px) {
+      padding-bottom: 150px;
+    }
+  }
+  background: $bc;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(4, max-content);
+  gap: 0 var(--offset);
+  grid-auto-flow: row;
+  grid-template-areas:
+    "title title title title title title title title title title title title title title title"
+    "img-2 img-2 img-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2"
+    "img-2 img-2 img-2 text text text text img-3 img-3 img-3 img-3 img-3 img-3 img-3 img-3"
+    ". . . . . . . img-3 img-3 img-3 img-3 img-3 img-3 img-3 img-3";
+
+  @include to(1024px) {
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(4, 100px);
+    grid-template-areas:
+    "title title title title title title title title title title"
+    "title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2"
+    "text text text text img-3 img-3 img-3 img-3 img-3 img-3"
+    "text text text text img-3 img-3 img-3 img-3 img-3 img-3";
+  }
+
+  @include to(575px) {
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+    "title title title title title title title title"
+    "title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2"
+    "text text text text text text text text"
+    "img-3 img-3 img-3 img-3 img-3 img-3 img-3 img-3"
+  }
+
+  .title {
+    line-height: 100%;
+  }
+
+  .section1-title {
+    grid-area: title;
+  }
+
+  .section1-img-2 {
+    grid-area: img-2;
+    margin-top: 25px;
+
+    @include to(1600px) {
+      margin-top: 10px;
+    }
+
+    @include to(1024px) {
+      display: none;
+    }
+  }
+
+  .section1-title-2 {
+    grid-area: title-2;
+    @include to(575px) {
+      height: auto;
+    }
+  }
+
+  .section1-text {
+    grid-area: text;
+
+    @include from(2000px) {
+      margin-top: -100px;
+    }
+
+    @include to(575px) {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin: 20px 0 30px;
+    }
+
+    .light-blue-text {
+      margin-bottom: 60px;
+      @include suisse-light(var(--default-font-4), $text, 150%, left, none);
+
+      @include to(1600px) {
+        margin-bottom: 40px;
+      }
+
+      @include to(575px) {
+        margin-bottom: 0;
+        width: 65%;
+      }
+    }
+  }
+
+  .section1-img-3 {
+    grid-area: img-3;
+
+    @include from(2000px) {
+      margin-top: -100px;
+    }
+
+  }
+}
+
+.section-2 {
+  &-wrapper {
+    background-color: $bc2;
+    position: relative;
+  }
+  height: 100%;
+  //background: $bc2;
+  //border-radius: 100% 100% 0% 0% / 30% 30% 100% 100%;
+  //transition: border-radius 2.3s linear;
+  //@include  to(1024px) {
+  //  border-radius: 100% 100% 0% 0% / 20% 20% 100% 100%;
+  //}
+  //
+  //@include  to(575px) {
+  //  border-radius: 100% 100% 0% 0% / 10% 10% 100% 100%;
+  //}
+
+  .section-2-title-wrap {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px var(--offset);
+    grid-auto-flow: row;
+    grid-template-areas:
+    "title title title title title title title title title title title title title title title"
+    "title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2";
+
+    @include to(1600px) {
+      gap: 15px var(--offset);
+    }
+
+    @include to(1024px) {
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-areas:
+    "title title title title title title title title title title"
+    "title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2";
+    }
+
+    @include to(575px) {
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-areas:
+    "title title title title title title title title"
+    "title-2 title-2 title-2 title-2 title-2 title-2 title-2 title-2";
+      gap: 0;
+    }
+  }
+
+  .section2-title {
+    grid-area: title;
+  }
+
+  .section2-title-2 {
+    grid-area: title-2;
+  }
+}
+
+.section-2-info-list {
+  li {
+    padding-bottom: 20px;
+    margin-top: 50px;
+    border-bottom: 2px solid #B8CADC;
+    &:first-child {
+      margin-top: 0;
+    }
+    @include to(1600px) {
+      padding-bottom: 10px;
+      margin-top: 30px;
+    }
+    @include to(1024px) {
+      margin-top: 25px;
+    }
+    @include to(575px) {
+      margin-top: 30px;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.section-2-info-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .blue-text {
+    max-width: 625px;
+    margin-top: 100px;
+
+    @include to(1600px) {
+      max-width: 440px;
+      margin-top: 50px;
+    }
+
+    @include to(1024px) {
+      max-width: 324px;
+    }
+
+    @include to(575px) {
+      margin-top: 30px;
+      max-width: fit-content;
+    }
+  }
+
+  @include to(575px) {
+    margin-top: 50px;
+  }
+}
+
+.section-3 {
+  &-wrapper {
+    background-color: $bc;
+    position: relative;
+  }
+  //background: $bc;
+  //border-radius: 100% 100% 0% 0% / 15% 15% 100% 100%;
+  height: 100%;
+  //transition: border-radius 2.3s ease-in-out;
+
+  //@include  to(1024px) {
+  //  border-radius: 100% 100% 0% 0% / 6% 6% 100% 100%;
+  //}
+  //
+  //@include  to(575px) {
+  //  border-radius: 100% 100% 0% 0% / 5% 5% 100% 100%;
+  //}
+
+  .section-3-title-wrap {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 20px var(--offset);
+    grid-auto-flow: row;
+    grid-template-areas:
+    ". . section3-title section3-title section3-title section3-title section3-title section3-title section3-title section3-title section3-title section3-title section3-title section3-title section3-title"
+    "section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2"
+    ". . section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3";
+    margin-bottom: 145px;
+
+    @include to(1600px) {
+      margin-bottom: 100px;
+      gap: 15px var(--offset);
+    }
+
+    @include to(1024px) {
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-areas:
+              "section3-title section3-title section3-title section3-title section3-title section3-title section3-title section3-title section3-title section3-title"
+              "section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2"
+              "section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3";
+      margin-bottom: 50px;
+    }
+
+    @include to(575px) {
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-areas:
+              "section3-title section3-title section3-title section3-title section3-title section3-title section3-title section3-title"
+              "section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2 section3-title-2"
+              "section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3 section3-title-3";
+      gap: 0;
+    }
+
+    .section3-title {
+      grid-area: section3-title;
+    }
+
+    .section3-title-2 {
+      grid-area: section3-title-2;
+    }
+
+    .section3-title-3 {
+      grid-area: section3-title-3;
+    }
+  }
+
+
+  .section-3-objects-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    .object-block {
+      width: 100%;
+      padding-top: 130px;
+      padding-bottom: 130px;
+      border-bottom: 2px solid $lbc;
+      position: relative;
+
+      @include to(1600px) {
+        padding-bottom: 80px;
+        padding-top: 80px;
+      }
+
+      @include to(1024px) {
+        padding-bottom: 50px;
+        padding-top: 30px;
+        border-top: 2px solid $lbc;
+        border-bottom: 0;
+      }
+
+      @include to(575px) {
+        padding-bottom: 30px;
+      }
+
+      @include from(1023px) {
+        &:first-child {
+          border-top: 2px solid $lbc;
+        }
+      }
+
+      .object__title {
+        @include fiorina-italic;
+
+        @include to(1024px) {
+          pointer-events: none;
+        }
+      }
+
+      .object__text {
+        margin-top: 25px;
+
+        @include to(1024px) {
+          margin-top: 10px;
+        }
+      }
+
+      .object__img {
+        display: none;
+        margin-top: 30px;
+
+        @include to(1024px) {
+          display: flex;
+        }
+      }
+
+      .object__date {
+        @include fiorina-italic(var(--default-font-2), $mc, 110%, left, uppercase);
+        position: absolute;
+        right: 0;
+        top: 54px;
+
+        @include to(1024px) {
+          top: 30px;
+        }
+      }
+    }
+
+    .video-btn-container {
+      margin-top: 150px;
+
+      @include to(1600px) {
+        margin-top: 100px;
+      }
+
+      @include to(1024px) {
+        margin-top: 50px;
+        margin-left: 0;
+        margin-right: auto;
+      }
+    }
+
+    .hover-reveal {
+      position: fixed;
+      width: 743px;
+      height: 406px;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 1;
+
+      @include to(1600px) {
+        width: 458px;
+        height: 250px;
+      }
+
+      @include to(1024px) {
+        display: none;
+      }
+    }
+
+    .hover-reveal__inner,
+    .hover-reveal__img {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .hover-reveal__img {
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+  }
+}
+
+.section-4 {
+  &-wrapper {
+    background-color: $bc2;
+    position: relative;
+  }
+  //background: $bc2;
+  //border-radius: 100% 100% 0% 0% / 45% 45% 100% 100%;
+  height: 100%;
+  //transition: border-radius 2.3s ease-in-out;
+
+  //@include  to(1024px) {
+  //  border-radius: 100% 100% 0% 0% / 30% 30% 100% 100%;
+  //}
+  //
+  //@include  to(575px) {
+  //  border-radius: 100% 100% 0% 0% / 15% 15% 100% 100%;
+  //}
+
+  .section-4-title-wrap {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px var(--offset);
+    grid-template-areas:
+    "section4-title section4-title section4-title section4-title section4-title section4-title section4-title section4-title section4-title section4-title section4-title section4-title section4-title section4-title section4-title"
+    "section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2";
+
+    .section4-title {
+      grid-area: section4-title;
+    }
+    .section4-title-2 {
+      grid-area: section4-title-2;
+    }
+
+    @include to(575px) {
+      grid-template-columns: repeat(8, 1fr);
+      gap: 0;
+      grid-template-areas:
+    "section4-title section4-title section4-title section4-title section4-title section4-title section4-title section4-title"
+    "section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2 section4-title-2";
+    }
+  }
+
+  .partners-container {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    row-gap: 40px;
+    column-gap: 130px;
+    justify-items: center;
+
+    @include to(575px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, auto);
+      row-gap: 35px;
+      column-gap: 50px;
+
+    }
+
+    img {
+      object-fit: contain;
+    }
+
+    .width-logo {
+      width: 140px;
+      @include to(575px) {
+        width: 100px;
+      }
+    }
+
+    .width-logo2 {
+      width: 80px;
+      @include to(575px) {
+        width: 60px;
+      }
+    }
+
+    @include to(1024px) {
+      display: grid;
+    }
+  }
+
+  .swiper-partners-container {
+    @include to(1024px) {
+      display: none;
+    }
+
+    .swiper-wrapper {
+      align-items: center;
+    }
+  }
+}
+
+.section-5 {
+  &-wrapper {
+    background-color: $bc;
+    position: relative;
+  }
+  //background: $bc;
+  //border-radius: 100% 100% 0% 0% / 15% 15% 100% 100%;
+  //transition: border-radius 2.3s ease-in-out;
+  //
+  //@include  to(1024px) {
+  //  border-radius: 100% 100% 0% 0% / 10% 10% 100% 100%;
+  //}
+  //
+  //@include  to(575px) {
+  //  border-radius: 100% 100% 0% 0% / 5% 5% 100% 100%;
+  //}
+
+  .section-5-title-wrap {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px var(--offset);
+    grid-template-areas:
+    "section5-title section5-title section5-title section5-title section5-title section5-title section5-title section5-title section5-title section5-title section5-title section5-title section5-title section5-title section5-title"
+    ". . . section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2";
+
+    @include to(1600px) {
+      gap: 15px var(--offset);
+    }
+
+    @include to(1024px) {
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-areas:
+    "section5-title section5-title section5-title section5-title section5-title section5-title section5-title section5-title section5-title section5-title"
+    "section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2";
+    }
+
+    @include to(575px) {
+      gap: 0;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-areas:
+    "section5-title section5-title section5-title section5-title section5-title section5-title section5-title section5-title"
+    "section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2 section5-title-2";
+    }
+
+    .section5-title {
+      grid-area: section5-title;
+    }
+    .section5-title-2 {
+      grid-area: section5-title-2;
+    }
+  }
+
+  .section-5-info-2 {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: 1fr;
+    gap: 20px var(--offset);
+    grid-template-areas:
+    "section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-img . section-5-info-2-text section-5-info-2-text section-5-info-2-text section-5-info-2-text . section-5-info-2-img2 section-5-info-2-img2 section-5-info-2-img2";
+
+    @include to(1600px) {
+      gap: 15px var(--offset);
+      grid-template-areas:
+              "section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-img . section-5-info-2-text section-5-info-2-text section-5-info-2-text section-5-info-2-text section-5-info-2-img2 section-5-info-2-img2 section-5-info-2-img2 .";
+    }
+
+    @include to(1024px) {
+      grid-template-columns: repeat(10, 1fr);
+      gap: 15px var(--offset);
+      grid-template-areas:
+              "section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-text section-5-info-2-text section-5-info-2-text section-5-info-2-text section-5-info-2-text";
+    }
+
+    @include to(575px) {
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: auto auto;
+      row-gap: 30px;
+      grid-template-areas:
+              "section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-img section-5-info-2-img"
+              "section-5-info-2-text section-5-info-2-text section-5-info-2-text section-5-info-2-text section-5-info-2-text section-5-info-2-text section-5-info-2-text section-5-info-2-text";
+
+    }
+
+    .section-5-info-2-img {
+      grid-area: section-5-info-2-img;
+    }
+    .section-5-info-2-img2 {
+      grid-area: section-5-info-2-img2;
+      align-self: flex-end;
+      height: 420px;
+      object-fit: cover;
+
+      @include to(1600px) {
+        height: 297px;
+      }
+
+      @include to(1024px) {
+        display: none;
+      }
+    }
+    .section-5-info-2-text {
+      grid-area: section-5-info-2-text;
+      align-self: center;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+    }
+  }
+
+  .numbers-wrapper {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 150px var(--offset);
+    grid-auto-flow: row;
+    grid-template-areas:
+    ". . . num-2 num-2 num-2 num-2 . . . . . . . ."
+    "num-1 num-1 . . . . . . num-3 num-3 num-3 num-3 num-3 . .";
+
+    @include to(1600px) {
+      gap: 100px var(--offset);
+    }
+
+    @include to(575px) {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, auto);
+      row-gap: 50px;
+      grid-template-areas:
+              "num-1"
+              "num-2"
+              "num-3";
+      .num-1, .num-2, .num-3 {
+        .title {
+          font-size: 80px;
+        }
+      }
+    }
+
+    .light-blue-text-2 {
+      margin-bottom: 5px;
+    }
+
+    .num-1 {
+      grid-area: num-1;
+    }
+
+    .num-2 {
+      grid-area: num-2;
+    }
+
+    .num-3 {
+      grid-area: num-3;
+    }
+  }
+}
+
+.section-6 {
+  &-wrapper {
+    background-color: $bc2;
+    position: relative;
+  }
+  //background: $bc2;
+  //border-radius: 100% 100% 0% 0% / 25% 25% 100% 100%;
+  //transition: border-radius 2.3s ease-in-out;
+  //
+  //@include  to(1024px) {
+  //  border-radius: 100% 100% 0% 0% / 15% 15% 100% 100%;
+  //}
+  //
+  //@include  to(575px) {
+  //  border-radius: 100% 100% 0% 0% / 10% 10% 100% 100%;
+  //}
+
+  .section-6-title-wrap {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(1, auto);
+    gap: 0px var(--offset);
+    grid-auto-flow: row;
+    grid-template-areas:
+    ". . . . . . . . . . . title title title title"
+    "title2 title2 title2 title2 title2 title2 title2 title2 title2 title2 title2 title2 title2 title2 title2";
+
+    .section6-title {
+      grid-area: title;
+      justify-self: flex-end;
+    }
+
+    .section6-title-2 {
+      grid-area: title2;
+    }
+  }
+
+  .section-info-text {
+    .light-blue-text {
+      margin-bottom: 0;
+
+      &:first-child {
+        margin-bottom: 30px;
+
+        @include to(1024px) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
